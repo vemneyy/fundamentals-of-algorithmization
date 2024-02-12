@@ -12,6 +12,7 @@ int main()
     double overallSum = 0;
     int maxSubjectCount = 0, maxCount = 0, m = 1;
 
+
     // Получение ввода для количества студентов (k) и предметов (n)
     cout << "Введите k: ";
     cin >> k;
