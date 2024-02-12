@@ -10,6 +10,7 @@ int main()
     double S = 0;
     double x = 0; // Инициализируем переменные a, S и x
 
+
 enterX:
     cout << "Enter x: ";
     cin >> x;

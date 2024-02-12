@@ -8,6 +8,7 @@ struct Student {
     std::string language; // Язык, на котором говорит студент
 };
 
+
 int main() {
     setlocale(LC_ALL, "Russian");
     std::vector<Student> students; // Вектор для хранения информации о студентах

@@ -14,6 +14,7 @@ int main() {
     cout << "Enter the value: ";
     cin >> elementValue;
 
+
     // Вычисление остальных элементов в зависимости от номера элемента
     switch (elementNumber)
     {

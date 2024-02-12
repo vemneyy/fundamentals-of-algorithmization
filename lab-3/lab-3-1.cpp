@@ -6,6 +6,7 @@ int main() {
     bool InsideTriangleC = false;
     bool isInCircle = false;
     bool isShaded = false;
+    
     float x, y;
 
     // Вывод приветственного сообщения

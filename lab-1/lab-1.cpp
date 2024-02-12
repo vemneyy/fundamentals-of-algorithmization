@@ -15,5 +15,6 @@ int main()
 
 	cout << boolalpha << (c == (a + b) / 2) << endl;
 
+
 	return 0;
 }

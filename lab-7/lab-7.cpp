@@ -11,6 +11,7 @@ int main()
     vector<int> numbers;
     int n, a, b;
 
+
     cout << "¬ведите количество чисел в последовательности: ";
     cin >> n;
 

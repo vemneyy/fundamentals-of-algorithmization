@@ -14,6 +14,7 @@ int main()
     const char symbol = '-'; // Символ для линии
     string repeated(number, symbol); // Создаем строку, состоящую из повторяющихся символов
 
+
     // Вывод заголовка для столбцов x
     cout << "y/x  |";
     for (int col = 0; col <= numY; col++)
