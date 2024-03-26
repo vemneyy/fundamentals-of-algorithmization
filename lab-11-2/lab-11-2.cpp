@@ -15,9 +15,8 @@ using namespace std;
 
 int main() {
     setlocale(LC_ALL, "Russian");
-    const int rows = 100;
-    const int cols = 200;
-    vector<vector<float>> matrix(rows, vector<float>(cols));
+    const int rows = 10;
+    const int cols = 20;
     vector<float> flatMatrix(rows * cols);
 
     srand(static_cast<unsigned>(time(0)));
@@ -26,9 +25,17 @@ int main() {
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
             float value = static_cast<float>(rand()) / RAND_MAX * 100; // Примерный диапазон [0, 100)
-            matrix[i][j] = value;
             flatMatrix[i * cols + j] = value;
         }
+    }
+
+    cout << "Первая подматрица 10x20 (до):" << endl;
+
+    for (int i = 0; i < 10; ++i) {
+        for (int j = 0; j < 20; ++j) {
+            cout << fixed << setprecision(4) << flatMatrix[i * 20 + j] << "\t";
+        }
+        cout << endl;
     }
 
     // Сортировка
@@ -40,7 +47,10 @@ int main() {
         }
     }
 
-    cout << "Первая подматрица 10x20:" << endl; 
+    
+
+
+    cout << "\nПервая подматрица 10x20:" << endl; 
 
     // Вывод первой подматрицы 10x20
     for (int i = 0; i < 10; ++i) {
