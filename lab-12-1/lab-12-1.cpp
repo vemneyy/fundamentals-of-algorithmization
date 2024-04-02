@@ -29,8 +29,8 @@ public:
     void input() {
         char temp[MAX_SIZE - 1];
         cin.getline(temp, MAX_SIZE - 1);
-        int len = strlen(temp);
-        data[0] = (len < MAX_SIZE - 1) ? len : MAX_SIZE - 1;
+        size_t len = strlen(temp);
+        data[0] = static_cast<unsigned char>((len < MAX_SIZE - 1) ? len : MAX_SIZE - 1);
         memcpy(data + 1, temp, data[0]);
     }
 
