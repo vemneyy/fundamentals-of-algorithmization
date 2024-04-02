@@ -20,7 +20,7 @@ private:
 
     // Функция для вычисления длины строки
     static int strLength(const char* str) {
-        int length = 0;
+        int length = 0; // Длина строки
         // Проходимся по строке до тех пор, пока не встретим нулевой символ или не достигнем максимального размера
         while (str[length] != '\0' && length < MAX_SIZE - 1) ++length;
         return length;
@@ -28,8 +28,9 @@ private:
 
     // Функция для копирования строки
     static void strCopy(char* dest, const char* src, int length) {
+        // Копируем символы из исходной строки в целевую
         for (int i = 0; i < length; ++i) {
-            dest[i] = src[i];
+            dest[i] = src[i]; // Копируем символ
         }
     }
 
@@ -41,43 +42,43 @@ public:
 
     // Инициализирующий конструктор
     String(const char* str) {
-        int length = strLength(str);
-        length = (length < MAX_SIZE - 1) ? length : MAX_SIZE - 1;
-        data[0] = static_cast<char>(length);
-        strCopy(data + 1, str, length);
+        int length = strLength(str); // Вычисляем длину строки
+        length = (length < MAX_SIZE - 1) ? length : MAX_SIZE - 1; // Ограничиваем длину строки
+        data[0] = static_cast<char>(length); // Записываем длину строки
+        strCopy(data + 1, str, length); // Копируем символы строки
     }
 
     // Конструктор копирования
     String(const String& other) {
-        strCopy(this->data, other.data, other.data[0] + 1);
+        strCopy(this->data, other.data, other.data[0] + 1); // Копируем данные из другой строки
     }
 
     // Метод для вывода строки
     void print() const {
-        cout.write(data + 1, data[0]);
-        cout << endl;
+        cout.write(data + 1, data[0]); // Выводим символы строки
+        cout << endl; 
     }
 
     // Преобразование в строку C++
     string toString() const {
-        return string(data + 1, data[0]);
+        return string(data + 1, data[0]); // Создаём строку C++ из символов строки
     }
 
     // Получение длины строки
     int length() const {
-        return static_cast<unsigned char>(data[0]);
+        return static_cast<unsigned char>(data[0]); // Возвращаем длину строки
     }
 
     // Поиск подстроки в строке
     int find(const String& substring) const {
         // Перебираем все возможные начальные позиции для подстроки
         for (int i = 1; i <= this->length() - substring.length() + 1; ++i) {
-            bool found = true;
+            bool found = true; // Флаг, что подстрока найдена
             // Проверяем, совпадает ли каждый символ подстроки с символом основной строки
             for (int j = 0; j < substring.length(); ++j) {
                 if (data[i + j] != substring.data[j + 1]) {
-                    found = false;
-                    break;
+                    found = false; // Сбрасываем флаг
+                    break; // Выходим из цикла
                 }
             }
             if (found) {
@@ -89,19 +90,19 @@ public:
 
     // Вставка подстроки в строку
     void insert(const String& substring, int position) {
-        int thisLen = this->length();
-        int subLen = substring.length();
+        int thisLen = this->length(); // Длина текущей строки
+        int subLen = substring.length(); // Длина вставляемой подстроки
         // Проверка на валидность позиции и возможное переполнение строки
         if (position > thisLen || position < 0 || thisLen + subLen >= 255) return;
 
         // Сдвигаем существующие символы, чтобы освободить место для подстроки
         for (int i = thisLen; i >= position; --i) {
-            data[i + subLen + 1] = data[i + 1];
+            data[i + subLen + 1] = data[i + 1]; // Сдвигаем символы
         }
 
         // Вставляем подстроку
         for (int i = 0; i < subLen; ++i) {
-            data[position + i + 1] = substring.data[i + 1];
+            data[position + i + 1] = substring.data[i + 1]; // Вставляем символы
         }
 
         data[0] += static_cast<char>(subLen); // Обновляем длину строки
@@ -110,12 +111,14 @@ public:
 
     // Удаление подстроки из строки
     void remove(int position, int length) {
-        int thisLen = this->length();
+        int thisLen = this->length(); // Длина текущей строки
+
+        // Проверка на валидность позиции и длины подстроки
         if (position < 0 || position + length >= thisLen) return;
 
         // Сдвигаем символы на место удалённой подстроки
         for (int i = position + length; i < thisLen; ++i) {
-            data[i - length + 1] = data[i + 1];
+            data[i - length + 1] = data[i + 1]; // Сдвигаем символы
         }
 
         data[0] -= static_cast<char>(length); // Обновляем длину строки
@@ -124,16 +127,20 @@ public:
 
     // Сцепление двух строк
     String operator+(const String& other) const {
-        String result;
-        int thisLen = this->length();
-        int otherLen = other.length();
+        String result; // Результирующая строка
+        int thisLen = this->length(); // Длина текущей строки
+        int otherLen = other.length(); // Длина второй строки
+        
+        // Вычисляем новую длину строки
         int newLength = (thisLen + otherLen <= 255) ? (thisLen + otherLen) : 255;
-
+        
+        // Записываем новую длину строки
         result.data[0] = static_cast<char>(newLength);
-        strCopy(result.data + 1, this->data + 1, thisLen);
-        strCopy(result.data + thisLen + 1, other.data + 1, newLength - thisLen);
 
-        return result;
+        strCopy(result.data + 1, this->data + 1, thisLen); // Копируем символы текущей строки
+        strCopy(result.data + thisLen + 1, other.data + 1, newLength - thisLen); // Копируем символы второй строки
+
+        return result; // Возвращаем результат
     }
 };
 
