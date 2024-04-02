@@ -14,6 +14,18 @@
 
 using namespace std;
 
+/*
+* Класс для работы со строками аналогичными строкам Turbo Pascal
+* Функции в классе:
+* - ввод строки с клавиатуры
+* - вывод строки на экран
+* - получение длины строки
+* - поиск подстроки в строке
+* - удаление подстроки из строки
+* - вставка подстроки в строку
+* - сцепление двух строк
+*/
+
 class String {
 private:
     static const int MAX_SIZE = 256; // Максимальный размер, включая длину
@@ -26,15 +38,16 @@ public:
 
     // Метод ввода строки с клавиатуры
     void input() {
-        char temp[MAX_SIZE - 1];
-        cin.getline(temp, MAX_SIZE - 1);
-        size_t len = strlen(temp);
-        data[0] = static_cast<unsigned char>((len < MAX_SIZE - 1) ? len : MAX_SIZE - 1);
-        memcpy(data + 1, temp, data[0]);
+        char temp[MAX_SIZE - 1]; // Временный буфер для ввода строки
+        cin.getline(temp, MAX_SIZE - 1); // Вводим строку
+        size_t len = strlen(temp); // Длина строки
+        data[0] = static_cast<unsigned char>((len < MAX_SIZE - 1) ? len : MAX_SIZE - 1); // Записываем длину строки
+        memcpy(data + 1, temp, data[0]); // Копируем символы строки
     }
 
     // Метод для вывода строки на экран
     void print() const {
+        // Выводим символы строки
         for (int i = 1; i <= data[0]; ++i) {
             cout << data[i];
         }
@@ -46,11 +59,13 @@ public:
 
     // Поиск подстроки в строке
     int find(const String& substr) const {
+        // Если длина подстроки больше длины строки, то подстрока не найдена
         for (int i = 1; i <= data[0] - substr.data[0] + 1; ++i) {
-            bool match = true;
+            bool match = true; // Флаг совпадения
             for (int j = 1; j <= substr.data[0]; ++j) {
+                // Если символы не совпадают, то выходим из цикла
                 if (data[i + j - 1] != substr.data[j]) {
-                    match = false;
+                    match = false; // Сбрасываем флаг
                     break;
                 }
             }
@@ -61,32 +76,41 @@ public:
 
     // Удаление подстроки из строки
     void remove(int position, int length) {
-        if (position < 1 || position > data[0] || length < 0 || position + length - 1 > data[0]) return;
+        // Если позиция или длина некорректны, то выходим
+        if (position < 1 || position > data[0] || length < 0 || position + length - 1 > data[0]) return; // Позиция и длина некорректны
+        // Сдвигаем символы влево
         for (int i = position; i <= data[0] - length; ++i) {
-            data[i] = data[i + length];
+            data[i] = data[i + length]; // Сдвигаем символы
         }
-        data[0] -= length;
+        data[0] -= length; // Уменьшаем длину строки
+
+        // Заполняем оставшуюся часть нулями
     }
 
     // Вставка подстроки в строку
     void insert(const String& substr, int position) {
+        // Если позиция некорректна, то выходим
         if (position < 1 || position > data[0] + 1 || data[0] + substr.data[0] >= MAX_SIZE) return;
+        // Сдвигаем символы вправо
         for (int i = data[0]; i >= position; --i) {
-            data[i + substr.data[0]] = data[i];
+            data[i + substr.data[0]] = data[i]; // Сдвигаем символы
         }
+        // Вставляем подстроку
         for (int i = 0; i < substr.data[0]; ++i) {
-            data[position + i] = substr.data[i + 1];
+            data[position + i] = substr.data[i + 1]; // Вставляем символы
         }
-        data[0] += substr.data[0];
+        data[0] += substr.data[0]; // Увеличиваем длину строки
     }
 
     // Сцепление двух строк
     void concat(const String& other) {
+        // Если длина строки превышает максимальный размер, то выходим
         if (data[0] + other.data[0] >= MAX_SIZE) return;
+        // Добавляем символы второй строки в конец первой
         for (int i = 1; i <= other.data[0]; ++i) {
-            data[data[0] + i] = other.data[i];
+            data[data[0] + i] = other.data[i]; // Добавляем символы
         }
-        data[0] += other.data[0];
+        data[0] += other.data[0]; // Увеличиваем длину строки
     }
 };
 
