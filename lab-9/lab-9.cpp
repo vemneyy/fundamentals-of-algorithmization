@@ -1,44 +1,44 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm> // Для функции std::swap
+#include <algorithm> // Р”Р»СЏ С„СѓРЅРєС†РёРё std::swap
 
 struct Student {
-    std::string name;     // Имя студента
-    std::string language; // Язык, на котором говорит студент
+    std::string name;     // РРјСЏ СЃС‚СѓРґРµРЅС‚Р°
+    std::string language; // РЇР·С‹Рє, РЅР° РєРѕС‚РѕСЂРѕРј РіРѕРІРѕСЂРёС‚ СЃС‚СѓРґРµРЅС‚
 };
 
 
 int main() {
     setlocale(LC_ALL, "Russian");
-    std::vector<Student> students; // Вектор для хранения информации о студентах
+    std::vector<Student> students; // Р’РµРєС‚РѕСЂ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃС‚СѓРґРµРЅС‚Р°С…
 
     int number_of_students;
-    std::cout << "Введите количество студентов в группе: ";
+    std::cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ РІ РіСЂСѓРїРїРµ: ";
     std::cin >> number_of_students;
-    std::cin.ignore(); // Игнорируем символ новой строки во входном потоке
+    std::cin.ignore(); // РРіРЅРѕСЂРёСЂСѓРµРј СЃРёРјРІРѕР» РЅРѕРІРѕР№ СЃС‚СЂРѕРєРё РІРѕ РІС…РѕРґРЅРѕРј РїРѕС‚РѕРєРµ
 
-    // Ввод информации о студентах
+    // Р’РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃС‚СѓРґРµРЅС‚Р°С…
     for (int i = 0; i < number_of_students; i++) {
-        std::cout << "Введите имя студента " << i + 1 << ": ";
+        std::cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ СЃС‚СѓРґРµРЅС‚Р° " << i + 1 << ": ";
         std::string name;
         std::getline(std::cin, name);
 
-        std::cout << "Введите язык студента " << i + 1 << ": ";
+        std::cout << "Р’РІРµРґРёС‚Рµ СЏР·С‹Рє СЃС‚СѓРґРµРЅС‚Р° " << i + 1 << ": ";
         std::string language;
         std::getline(std::cin, language);
 
         students.push_back({ name, language });
     }
 
-    // Сортировка студентов по языку
+    // РЎРѕСЂС‚РёСЂРѕРІРєР° СЃС‚СѓРґРµРЅС‚РѕРІ РїРѕ СЏР·С‹РєСѓ
     std::sort(students.begin(), students.end(), [](const Student& a, const Student& b) {
         return a.language < b.language;
         });
 
-    // Вывод информации о студентах, сгруппированных по языку
+    // Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃС‚СѓРґРµРЅС‚Р°С…, СЃРіСЂСѓРїРїРёСЂРѕРІР°РЅРЅС‹С… РїРѕ СЏР·С‹РєСѓ
     for (int i = 0; i < number_of_students; i++) {
-        // Проверка на изменение языка
+        // РџСЂРѕРІРµСЂРєР° РЅР° РёР·РјРµРЅРµРЅРёРµ СЏР·С‹РєР°
         if (i == 0 || students[i].language != students[i - 1].language) {
             std::cout << "\n" << students[i].language << ":\n";
         }

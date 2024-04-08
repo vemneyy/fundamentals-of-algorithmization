@@ -1,39 +1,39 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
 
 int main() {
-    // Объявление переменных
+    // РћР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С…
     int elementNumber;
     double elementValue;
-    // Вывод приветственного сообщения
+    // Р’С‹РІРѕРґ РїСЂРёРІРµС‚СЃС‚РІРµРЅРЅРѕРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ
     cout << "1 - Radius\n" << "2 - Diameter\n" << "3 - Length\n" << "4 - Area of the circle" << endl;
 
-    // Ввод номера элемента и его значения
+    // Р’РІРѕРґ РЅРѕРјРµСЂР° СЌР»РµРјРµРЅС‚Р° Рё РµРіРѕ Р·РЅР°С‡РµРЅРёСЏ
     cout << "\nEnter (1-4): ";
     cin >> elementNumber;
     cout << "Enter the value: ";
     cin >> elementValue;
 
 
-    // Вычисление остальных элементов в зависимости от номера элемента
+    // Р’С‹С‡РёСЃР»РµРЅРёРµ РѕСЃС‚Р°Р»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РЅРѕРјРµСЂР° СЌР»РµРјРµРЅС‚Р°
     switch (elementNumber)
     {
-    case 1: // Радиус
+    case 1: // Р Р°РґРёСѓСЃ
         cout << "\nDiameter: " << 2 * elementValue << endl;
         cout << "Length: " << 2 * 3.14 * elementValue << endl;
         cout << "Area of the circle: " << 3.14 * elementValue * elementValue << endl;
         break;
-    case 2: // Диаметр
+    case 2: // Р”РёР°РјРµС‚СЂ
         cout << "\nRadius: " << elementValue / 2 << endl;
         cout << "Length: " << 3.14 * elementValue << endl;
         cout << "Area of the circle: " << 3.14 * (elementValue / 2) * (elementValue / 2) << endl;
         break;
-    case 3: // Длина
+    case 3: // Р”Р»РёРЅР°
         cout << "\nRadius: " << elementValue / (2 * 3.14) << endl;
         cout << "Diameter: " << elementValue / 3.14 << endl;
         cout << "Area of the circle: " << (elementValue / (2 * 3.14)) * (elementValue / (2 * 3.14)) * 3.14 << endl;
         break;
-    case 4: // Площадь круга
+    case 4: // РџР»РѕС‰Р°РґСЊ РєСЂСѓРіР°
         cout << "\nRadius: " << sqrt(elementValue / 3.14) << endl;
         cout << "Diameter: " << 2 * sqrt(elementValue / 3.14) << endl;
         cout << "Length: " << 2 * 3.14 * sqrt(elementValue / 3.14) << endl;
@@ -43,6 +43,6 @@ int main() {
         break;
     }
 
-    // Успешное завершение программы
+    // РЈСЃРїРµС€РЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹
     return 0;
 }
