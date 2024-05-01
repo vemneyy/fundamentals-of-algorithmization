@@ -48,7 +48,7 @@
     <Image Include="app.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\..\..\..\Desktop\first_formula.png">
+    <Image Include="first_formula.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

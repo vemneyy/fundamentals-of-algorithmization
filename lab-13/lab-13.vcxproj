@@ -148,10 +148,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\..\Desktop\first_formula.png">
-      <DeploymentContent>true</DeploymentContent>
-    </Image>
     <Image Include="app.ico" />
+    <Image Include="first_formula.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
