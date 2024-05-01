@@ -61,6 +61,9 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Button^ button1;
+	public: System::Windows::Forms::PictureBox^ pictureBox1;
+	private:
+
 
 
 
@@ -96,6 +99,7 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabLinear = (gcnew System::Windows::Forms::TabPage());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -115,10 +119,12 @@ namespace CppCLRWinFormsProject {
 			this->radioSin = (gcnew System::Windows::Forms::RadioButton());
 			this->radioCos = (gcnew System::Windows::Forms::RadioButton());
 			this->tabCycle = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->tabControl1->SuspendLayout();
 			this->tabLinear->SuspendLayout();
 			this->tabFork->SuspendLayout();
 			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -134,6 +140,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// tabLinear
 			// 
+			this->tabLinear->Controls->Add(this->pictureBox1);
 			this->tabLinear->Controls->Add(this->label3);
 			this->tabLinear->Controls->Add(this->buttonCalculate);
 			this->tabLinear->Controls->Add(this->txtY);
@@ -354,6 +361,16 @@ namespace CppCLRWinFormsProject {
 			this->tabCycle->Text = L"Циклы";
 			this->tabCycle->UseVisualStyleBackColor = true;
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(16, 62);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(663, 250);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 6;
+			this->pictureBox1->TabStop = false;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
@@ -370,6 +387,7 @@ namespace CppCLRWinFormsProject {
 			this->tabFork->PerformLayout();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
