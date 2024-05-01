@@ -1,57 +1,57 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
 
 int main() {
-    // Объявление необходимых переменных
+    // РћР±СЉСЏРІР»РµРЅРёРµ РЅРµРѕР±С…РѕРґРёРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
     bool InsideTriangleC = false;
     bool isInCircle = false;
     bool isShaded = false;
     
     float x, y;
 
-    // Вывод приветственного сообщения
+    // Р’С‹РІРѕРґ РїСЂРёРІРµС‚СЃС‚РІРµРЅРЅРѕРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ
     cout << "Enter (x y): ";
-    // Ввод пользовательских координат
+    // Р’РІРѕРґ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёС… РєРѕРѕСЂРґРёРЅР°С‚
     cin >> x >> y;
 
-    // Задаём вершины треугольников по отдельности
-    // Треугольник в первой четверти
+    // Р—Р°РґР°С‘Рј РІРµСЂС€РёРЅС‹ С‚СЂРµСѓРіРѕР»СЊРЅРёРєРѕРІ РїРѕ РѕС‚РґРµР»СЊРЅРѕСЃС‚Рё
+    // РўСЂРµСѓРіРѕР»СЊРЅРёРє РІ РїРµСЂРІРѕР№ С‡РµС‚РІРµСЂС‚Рё
     float triangle1_ax = 6.0, triangle1_ay = 0.0;
     float triangle1_bx = 0.0, triangle1_by = 6.0;
     float triangle1_cx = 6.0, triangle1_cy = 6.0;
-    // Треугольник во второй четверти
+    // РўСЂРµСѓРіРѕР»СЊРЅРёРє РІРѕ РІС‚РѕСЂРѕР№ С‡РµС‚РІРµСЂС‚Рё
     float triangle2_ax = -6.0, triangle2_ay = 0.0;
     float triangle2_bx = 0.0, triangle2_by = 6.0;
     float triangle2_cx = 0.0, triangle2_cy = 0.0;
-    // Треугольник в третьей четверти
+    // РўСЂРµСѓРіРѕР»СЊРЅРёРє РІ С‚СЂРµС‚СЊРµР№ С‡РµС‚РІРµСЂС‚Рё
     float triangle3_ax = -6.0, triangle3_ay = 0.0;
     float triangle3_bx = 0.0, triangle3_by = -6.0;
     float triangle3_cx = -6.0, triangle3_cy = -6.0;
-    // Треугольник в четвёртой четверти
+    // РўСЂРµСѓРіРѕР»СЊРЅРёРє РІ С‡РµС‚РІС‘СЂС‚РѕР№ С‡РµС‚РІРµСЂС‚Рё
     float triangle4_ax = 6.0, triangle4_ay = 0.0;
     float triangle4_bx = 0.0, triangle4_by = -6.0;
     float triangle4_cx = 0.0, triangle4_cy = 0.0;
 
-    // Тесты для определения принадлежности пользовательских координат к какому-либо треугольнику
-    // Тест для треугольника в первой четверти
+    // РўРµСЃС‚С‹ РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ РїСЂРёРЅР°РґР»РµР¶РЅРѕСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёС… РєРѕРѕСЂРґРёРЅР°С‚ Рє РєР°РєРѕРјСѓ-Р»РёР±Рѕ С‚СЂРµСѓРіРѕР»СЊРЅРёРєСѓ
+    // РўРµСЃС‚ РґР»СЏ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РІ РїРµСЂРІРѕР№ С‡РµС‚РІРµСЂС‚Рё
     float test_1_1 = (triangle1_bx - triangle1_ax) * (y - triangle1_ay) - (x - triangle1_ax) * (triangle1_by - triangle1_ay);
     float test_2_1 = (triangle1_cx - triangle1_bx) * (y - triangle1_by) - (x - triangle1_bx) * (triangle1_cy - triangle1_by);
     float test_3_1 = (triangle1_ax - triangle1_cx) * (y - triangle1_cy) - (x - triangle1_cx) * (triangle1_ay - triangle1_cy);
-    // Тест для треугольника во второй четверти
+    // РўРµСЃС‚ РґР»СЏ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РІРѕ РІС‚РѕСЂРѕР№ С‡РµС‚РІРµСЂС‚Рё
     float test_1_2 = (triangle2_bx - triangle2_ax) * (y - triangle2_ay) - (x - triangle2_ax) * (triangle2_by - triangle2_ay);
     float test_2_2 = (triangle2_cx - triangle2_bx) * (y - triangle2_by) - (x - triangle2_bx) * (triangle2_cy - triangle2_by);
     float test_3_2 = (triangle2_ax - triangle2_cx) * (y - triangle2_cy) - (x - triangle2_cx) * (triangle2_ay - triangle2_cy);
-    // Тест для треугольника в третьей четверти
+    // РўРµСЃС‚ РґР»СЏ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РІ С‚СЂРµС‚СЊРµР№ С‡РµС‚РІРµСЂС‚Рё
     float test_1_3 = (triangle3_bx - triangle3_ax) * (y - triangle3_ay) - (x - triangle3_ax) * (triangle3_by - triangle3_ay);
     float test_2_3 = (triangle3_cx - triangle3_bx) * (y - triangle3_by) - (x - triangle3_bx) * (triangle3_cy - triangle3_by);
     float test_3_3 = (triangle3_ax - triangle3_cx) * (y - triangle3_cy) - (x - triangle3_cx) * (triangle3_ay - triangle3_cy);
-    // Тест для треугольника в четвёртой четверти
+    // РўРµСЃС‚ РґР»СЏ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РІ С‡РµС‚РІС‘СЂС‚РѕР№ С‡РµС‚РІРµСЂС‚Рё
     float test_1_4 = (triangle4_bx - triangle4_ax) * (y - triangle4_ay) - (x - triangle4_ax) * (triangle4_by - triangle4_ay);
     float test_2_4 = (triangle4_cx - triangle4_bx) * (y - triangle4_by) - (x - triangle4_bx) * (triangle4_cy - triangle4_by);
     float test_3_4 = (triangle4_ax - triangle4_cx) * (y - triangle4_cy) - (x - triangle4_cx) * (triangle4_ay - triangle4_cy);
 
-    // Если пользовательская кооордината принадлежит к какому-либо треугольнику, то InsideTriangle = true, 
-    // иначе оставляем переменную InsideTriangle без изменений
+    // Р•СЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєР°СЏ РєРѕРѕРѕСЂРґРёРЅР°С‚Р° РїСЂРёРЅР°РґР»РµР¶РёС‚ Рє РєР°РєРѕРјСѓ-Р»РёР±Рѕ С‚СЂРµСѓРіРѕР»СЊРЅРёРєСѓ, С‚Рѕ InsideTriangle = true, 
+    // РёРЅР°С‡Рµ РѕСЃС‚Р°РІР»СЏРµРј РїРµСЂРµРјРµРЅРЅСѓСЋ InsideTriangle Р±РµР· РёР·РјРµРЅРµРЅРёР№
     if ((test_1_1 >= 0 && test_2_1 >= 0 && test_3_1 >= 0) || (test_1_1 <= 0 && test_2_1 <= 0 && test_3_1 <= 0))
     {
         isShaded = true;
@@ -81,7 +81,7 @@ int main() {
         }
     }
 
-    // Если пользовательские точки находяться в кругу, то isInCircle = true
+    // Р•СЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ С‚РѕС‡РєРё РЅР°С…РѕРґСЏС‚СЊСЃСЏ РІ РєСЂСѓРіСѓ, С‚Рѕ isInCircle = true
     if ((pow(x, 2) + pow(y, 2)) < 1)
     {
         isInCircle = true;
@@ -92,13 +92,13 @@ int main() {
         isShaded = true;
     }
 
-    // Если пользовательская точка находиться в треугольнике, но не в круге или наоборот, то точка находится в закрашенной области
+    // Р•СЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєР°СЏ С‚РѕС‡РєР° РЅР°С…РѕРґРёС‚СЊСЃСЏ РІ С‚СЂРµСѓРіРѕР»СЊРЅРёРєРµ, РЅРѕ РЅРµ РІ РєСЂСѓРіРµ РёР»Рё РЅР°РѕР±РѕСЂРѕС‚, С‚Рѕ С‚РѕС‡РєР° РЅР°С…РѕРґРёС‚СЃСЏ РІ Р·Р°РєСЂР°С€РµРЅРЅРѕР№ РѕР±Р»Р°СЃС‚Рё
     if (InsideTriangleC != isInCircle)
     {
         isShaded = true;
     }
 
-    // Если пользовательская точка находится в закрашенной области, то выводим соответствующее сообщение, иначе о нахождении в не закарашенной области
+    // Р•СЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєР°СЏ С‚РѕС‡РєР° РЅР°С…РѕРґРёС‚СЃСЏ РІ Р·Р°РєСЂР°С€РµРЅРЅРѕР№ РѕР±Р»Р°СЃС‚Рё, С‚Рѕ РІС‹РІРѕРґРёРј СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРµ СЃРѕРѕР±С‰РµРЅРёРµ, РёРЅР°С‡Рµ Рѕ РЅР°С…РѕР¶РґРµРЅРёРё РІ РЅРµ Р·Р°РєР°СЂР°С€РµРЅРЅРѕР№ РѕР±Р»Р°СЃС‚Рё
     if (isShaded) {
         cout << "Yes. This coordinates do shaded" << endl;
     }
@@ -106,6 +106,6 @@ int main() {
         cout << "No. This coordinates do not shaded" << endl;
     }
 
-    // Успешное завершение программы
+    // РЈСЃРїРµС€РЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹
     return 0;
 }
