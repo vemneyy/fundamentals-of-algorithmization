@@ -16,6 +16,11 @@ namespace CppCLRWinFormsProject {
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
 		int z;
+		System::Drawing::Bitmap^ firstImage = gcnew System::Drawing::Bitmap("first_formula.png");
+		System::Drawing::Bitmap^ secondImage = gcnew System::Drawing::Bitmap("second_formula.png");
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::Button^ button2;
+		   ;
 	public:
 		Form1(void)
 		{
@@ -62,6 +67,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Button^ button1;
 	public: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	public:
 	private:
 
 
@@ -99,9 +106,9 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabLinear = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->buttonCalculate = (gcnew System::Windows::Forms::Button());
 			this->txtY = (gcnew System::Windows::Forms::TextBox());
@@ -109,6 +116,7 @@ namespace CppCLRWinFormsProject {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tabFork = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -119,12 +127,16 @@ namespace CppCLRWinFormsProject {
 			this->radioSin = (gcnew System::Windows::Forms::RadioButton());
 			this->radioCos = (gcnew System::Windows::Forms::RadioButton());
 			this->tabCycle = (gcnew System::Windows::Forms::TabPage());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->tabControl1->SuspendLayout();
 			this->tabLinear->SuspendLayout();
-			this->tabFork->SuspendLayout();
-			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->tabFork->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			this->groupBox1->SuspendLayout();
+			this->tabCycle->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -157,6 +169,16 @@ namespace CppCLRWinFormsProject {
 			this->tabLinear->Text = L"Линейные вычисления";
 			this->tabLinear->UseVisualStyleBackColor = true;
 			this->tabLinear->Click += gcnew System::EventHandler(this, &Form1::tabLinear_Click);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = firstImage;
+			this->pictureBox1->Location = System::Drawing::Point(16, 62);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(663, 250);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 6;
+			this->pictureBox1->TabStop = false;
 			// 
 			// label3
 			// 
@@ -226,6 +248,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// tabFork
 			// 
+			this->tabFork->Controls->Add(this->pictureBox2);
 			this->tabFork->Controls->Add(this->button1);
 			this->tabFork->Controls->Add(this->textBox2);
 			this->tabFork->Controls->Add(this->textBox1);
@@ -241,6 +264,16 @@ namespace CppCLRWinFormsProject {
 			this->tabFork->TabIndex = 1;
 			this->tabFork->Text = L"Ветвления";
 			this->tabFork->UseVisualStyleBackColor = true;
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Image = secondImage;
+			this->pictureBox2->Location = System::Drawing::Point(26, 23);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(987, 284);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox2->TabIndex = 8;
+			this->pictureBox2->TabStop = false;
 			// 
 			// button1
 			// 
@@ -258,14 +291,14 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->textBox2->Location = System::Drawing::Point(630, 439);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(404, 45);
+			this->textBox2->Size = System::Drawing::Size(383, 45);
 			this->textBox2->TabIndex = 6;
 			// 
 			// textBox1
 			// 
 			this->textBox1->Location = System::Drawing::Point(630, 353);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(404, 45);
+			this->textBox1->Size = System::Drawing::Size(383, 45);
 			this->textBox1->TabIndex = 5;
 			// 
 			// label5
@@ -351,6 +384,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// tabCycle
 			// 
+			this->tabCycle->Controls->Add(this->button2);
+			this->tabCycle->Controls->Add(this->pictureBox3);
 			this->tabCycle->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->tabCycle->Location = System::Drawing::Point(4, 33);
@@ -361,15 +396,25 @@ namespace CppCLRWinFormsProject {
 			this->tabCycle->Text = L"Циклы";
 			this->tabCycle->UseVisualStyleBackColor = true;
 			// 
-			// pictureBox1
+			// button2
 			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(16, 62);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(663, 250);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox1->TabIndex = 6;
-			this->pictureBox1->TabStop = false;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button2->Location = System::Drawing::Point(850, 480);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(184, 69);
+			this->button2->TabIndex = 1;
+			this->button2->Text = L"Построить";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->Location = System::Drawing::Point(8, 8);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(823, 541);
+			this->pictureBox3->TabIndex = 0;
+			this->pictureBox3->TabStop = false;
 			// 
 			// Form1
 			// 
@@ -383,11 +428,14 @@ namespace CppCLRWinFormsProject {
 			this->tabControl1->ResumeLayout(false);
 			this->tabLinear->ResumeLayout(false);
 			this->tabLinear->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tabFork->ResumeLayout(false);
 			this->tabFork->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->tabCycle->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -452,5 +500,39 @@ namespace CppCLRWinFormsProject {
 		textBox2->Text = y.ToString();
 
 	}
-	};
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		Graphics^ g = pictureBox3->CreateGraphics(); // Создаем графический объект и привязываем его кpictureBox3
+		g->Clear(Color::White);
+		Pen^ MyPen = gcnew Pen(Color::Blue, 2);
+		SolidBrush^ MyBrush = gcnew SolidBrush(Color::FromArgb(255, 0, 0));
+		int xx, yy, cx, cy;
+		int w, h; // ширина и высота полосы
+		double fx, fy;
+		w = pictureBox3->Width;
+		h = pictureBox3->Height;
+		cx = w / 2; cy = h / 2; // центр графического окна
+		MyPen->Color = Color::Black;
+		g->DrawLine(MyPen, w / 2, 0, w / 2, h); // ось Ох
+		g->DrawLine(MyPen, 0, h / 2, w, h / 2); // ось Оу
+		for (fx = -20; fx < 20; fx += 0.005) {
+			fy = Math::Sin(fx); // график y=sin(x) синего цвета
+			xx = Convert::ToInt32(fx * 20); // fx и fy умножаем на 20 для увеличения масштаба
+			yy = -Convert::ToInt32(fy * 20); // направляем ось ординат вверх, умножив fy на (-1)
+			MyPen->Color = Color::Blue;
+			g->DrawEllipse(MyPen, xx + cx, yy + cy, 1, 1);
+			fy = 2 * Math::Cos(fx); //график функции y=2cos(x) – красного цвета
+			xx = Convert::ToInt32(fx * 20); // fx и fy умножаем на 20 для увеличения масштаба
+			yy = -Convert::ToInt32(fy * 20); // направляем ось ординат вверх , умножив fy на (-1)
+			MyPen->Color = Color::Red;
+			g->DrawEllipse(MyPen, xx + cx, yy + cy, 1, 1);
+
+			fy = 2 * Math::Tan(fx/2) + 1; //график функции y=2cos(x) – красного цвета
+			xx = Convert::ToInt32(fx * 20); // fx и fy умножаем на 20 для увеличения масштаба
+			yy = -Convert::ToInt32(fy * 20); // направляем ось ординат вверх , умножив fy на (-1)
+			MyPen->Color = Color::Green;
+			g->DrawEllipse(MyPen, xx + cx, yy + cy, 1, 1);
+		}
+		delete MyBrush; delete MyPen; delete g;
+	}
+};
 }
