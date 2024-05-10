@@ -18,6 +18,7 @@ namespace CppCLRWinFormsProject {
 		int z;
 		System::Drawing::Bitmap^ firstImage = gcnew System::Drawing::Bitmap("first_formula.png");
 		System::Drawing::Bitmap^ secondImage = gcnew System::Drawing::Bitmap("second_formula.png");
+
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::Button^ button2;
 		   ;
@@ -514,19 +515,19 @@ namespace CppCLRWinFormsProject {
 		MyPen->Color = Color::Black;
 		g->DrawLine(MyPen, w / 2, 0, w / 2, h); // ось ќх
 		g->DrawLine(MyPen, 0, h / 2, w, h / 2); // ось ќу
-		for (fx = -20; fx < 20; fx += 0.005) {
-			fy = Math::Sin(fx); // график y=sin(x) синего цвета
+		for (fx = -20; fx < 20; fx += 0.0005) {
+			fy = Math::Sin(fx) - 6; // график y=sin(x) синего цвета
 			xx = Convert::ToInt32(fx * 20); // fx и fy умножаем на 20 дл€ увеличени€ масштаба
 			yy = -Convert::ToInt32(fy * 20); // направл€ем ось ординат вверх, умножив fy на (-1)
 			MyPen->Color = Color::Blue;
 			g->DrawEllipse(MyPen, xx + cx, yy + cy, 1, 1);
-			fy = 2 * Math::Cos(fx); //график функции y=2cos(x) Ц красного цвета
+			fy = 2 * Math::Cos(fx) + 5; //график функции y=2cos(x) Ц красного цвета
 			xx = Convert::ToInt32(fx * 20); // fx и fy умножаем на 20 дл€ увеличени€ масштаба
 			yy = -Convert::ToInt32(fy * 20); // направл€ем ось ординат вверх , умножив fy на (-1)
 			MyPen->Color = Color::Red;
 			g->DrawEllipse(MyPen, xx + cx, yy + cy, 1, 1);
 
-			fy = 2 * Math::Tan(fx/2) + 1; //график функции y=2cos(x) Ц красного цвета
+			fy = 0.5 * Math::Tan(fx/0.5) + 1; //график функции y=2cos(x) Ц красного цвета
 			xx = Convert::ToInt32(fx * 20); // fx и fy умножаем на 20 дл€ увеличени€ масштаба
 			yy = -Convert::ToInt32(fy * 20); // направл€ем ось ординат вверх , умножив fy на (-1)
 			MyPen->Color = Color::Green;
